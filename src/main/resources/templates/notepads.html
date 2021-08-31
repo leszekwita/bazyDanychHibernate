@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<h1>Michał Radzik</h1>
+
+<thead>
+<tr>
+    <p>
+    <th> Notepad</th>
+    </p>
+</tr>
+
+</thead>
+<th:block th:each="notepad: ${notepads}">
+    <tr>
+        <td th:text="${notepad.getId()}"/>
+    </tr>
+    <tr>
+        <td th:text="${notepad.getContent()}"/>
+    </tr>
+</th:block>
+<form action="#" th:action="@{/newNotepad}" th:method="post" th:object="${newNotepad}">
+    <p>Content: <input type="text" th:field="*{content}"></p>
+    <p><input type="submit" value="add new content"></p>
+</form>
+<form action="#" th:action="@{/id}" th:method="get">
+    <p>Id: <input type="text" name="id" id="id"></p>
+    <p><input type="submit"></p>
+</form>
+</tbody>
+
+</body>
+</html>
